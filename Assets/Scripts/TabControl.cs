@@ -22,7 +22,7 @@ public class TabControl : MonoBehaviour {
 			if (Physics.Raycast(raycast, out raycastHit)){
 				Debug.Log("Something Hit");
 
-				TouchableVideo touchableVideo = raycastHit.collider.GetComponent<TouchableVideo> ();
+				Touchable touchableVideo = raycastHit.collider.GetComponent<Touchable> ();
 
 				if (touchableVideo != null) {
 					touchableVideo.Touch ();	
