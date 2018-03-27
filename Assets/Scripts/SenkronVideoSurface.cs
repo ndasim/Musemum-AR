@@ -9,7 +9,7 @@ public class SenkronVideoSurface : MonoBehaviour {
 	public int start;
 	public int end;
 
-	private RawImage rawImage;
+	public RawImage rawImage;
 	private Color color;
 
 	bool isVisible = false;

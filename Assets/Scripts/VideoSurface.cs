@@ -65,11 +65,6 @@ public class VideoSurface : MonoBehaviour {
 
 
 	void Update() {
-		if (!boxCollider.enabled)
-			Stop ();
-
-		view.enabled = boxCollider.enabled;
-
 		if (playing) {
 			// Forces audio sync on first play (helpful for some devices)
 			if (audioAttached) {

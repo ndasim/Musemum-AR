@@ -7,12 +7,13 @@ using UnityEngine.UI;
 public class TouchableMultiVideoController : Touchable {
 
 	public SenkronVideoSurface[] surfaces;
-	public SenkronRotateAnimator[] rotateAnimators;
-	public SenkronSlideUpAnim[] slideUpAnimators;
+	public Senkron[] senkronObjects;
 
 	public RawImage controller;
 	public BoxCollider boxCollider;
 	public Frame frameShow;
+
+	public int start = 0;
 
 	bool isPlaying;
 
@@ -35,21 +36,30 @@ public class TouchableMultiVideoController : Touchable {
 	// Use this for initialization
 	void Start () {
 		surfaces = GetComponents<SenkronVideoSurface> ();
-		rotateAnimators = GetComponents<SenkronRotateAnimator> ();
-		slideUpAnimators = GetComponents<SenkronSlideUpAnim> ();
+		senkronObjects = GetComponents<Senkron> ();
+
+		globalIndex = start;
 
 		if (audioAttached) {
 			audio.attachedAudioSource = GetComponent<AudioSource>();
 			audio.fps = FPS;
-			audio.frameIndex = 0;
+			audio.attachedAudioSource.time = start / FPS;
 		}
 	}
 
 
 	// Update is called once per frame
 	void Update () {
-		if (!boxCollider.enabled)
-			Stop ();
+		if (!boxCollider.enabled) {
+			Pause ();
+		}
+		else if (globalIndex != 0 && !isPlaying) {
+			Play ();
+		}
+
+		foreach (SenkronVideoSurface surface in surfaces) {
+			surface.rawImage.enabled = boxCollider.enabled;
+		}
 
 		controller.enabled = boxCollider.enabled && !isPlaying;
 		if (isPlaying) {
@@ -61,7 +71,11 @@ public class TouchableMultiVideoController : Touchable {
 				}
 			}
 
-			globalIndex += FPS * Time.deltaTime;
+			if (audioAttached) {
+				globalIndex = audio.attachedAudioSource.time * FPS;	// Syncronise with audio
+			} else {
+				globalIndex += FPS * Time.deltaTime;
+			}
 
 			frameShow.showframe (globalIndex);
 
@@ -69,11 +83,7 @@ public class TouchableMultiVideoController : Touchable {
 				surface.Sync ((int)globalIndex);
 			}
 
-			foreach (SenkronRotateAnimator animator in rotateAnimators){
-				animator.Sync ((int)globalIndex);
-			}
-
-			foreach (SenkronSlideUpAnim animator in slideUpAnimators){
+			foreach (Senkron animator in senkronObjects){
 				animator.Sync ((int)globalIndex);
 			}
 		}
@@ -89,6 +99,8 @@ public class TouchableMultiVideoController : Touchable {
 	public void Pause(){
 		isPlaying = false;
 		controller.enabled = true;
+		if(audioAttached)
+			audio.attachedAudioSource.Pause ();
 	}
 
 

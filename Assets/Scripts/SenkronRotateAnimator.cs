@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SenkronRotateAnimator : MonoBehaviour {
+public class SenkronRotateAnimator : Senkron {
 	private int SHOW = 1;
 	private int HIDE = 2;
 
@@ -69,7 +69,7 @@ public class SenkronRotateAnimator : MonoBehaviour {
 		}
 	}
 
-	public void hide(){
+	public override void hide(){
 		if (!inAnim) {
 			print ("Rotate anim: Hide");
 			inAnim = true;
@@ -77,7 +77,7 @@ public class SenkronRotateAnimator : MonoBehaviour {
 		}
 	}
 		
-	public void Sync(int globalIndex){
+	override public void Sync(int globalIndex){
 		if (globalIndex > start && globalIndex < end) {
 			if (isHiding) {
 				show ();
