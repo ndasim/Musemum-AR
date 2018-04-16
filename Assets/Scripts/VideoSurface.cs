@@ -117,7 +117,9 @@ public class VideoSurface : MonoBehaviour {
 				lastIndex = intIndex;
 			}
 
-			view.texture = newTex;
+			if (view != null && newTex != null) {
+				view.texture = newTex;
+			}
 		}
 	}
 

@@ -31,10 +31,10 @@ public class SenkronVideoSurface : MonoBehaviour {
 
 	void visiblityWorker(bool desiredVisible){
 		if (desiredVisible && !isVisible){
-			color.a = color.a + 0.05f;
+			color.a = color.a + 1f;
 		}
 		else if(!desiredVisible && isVisible){
-			color.a = color.a - 0.05f;
+			color.a = color.a - 10f;
 		}
 
 		isVisible = color.a >= 1f ? true : (color.a <= 0 ? false : isVisible);

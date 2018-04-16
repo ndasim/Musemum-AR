@@ -10,12 +10,14 @@ public class TouchableMultiVideoController : Touchable {
 	public Senkron[] senkronObjects;
 
 	public RawImage controller;
+	public RawImage playPause;
 	public BoxCollider boxCollider;
 	public Frame frameShow;
 
 	public int start = 0;
 
 	bool isPlaying;
+	bool forcePause;
 
 	float globalIndex;
 
@@ -35,6 +37,7 @@ public class TouchableMultiVideoController : Touchable {
 
 	// Use this for initialization
 	void Start () {
+		playPause.texture = null;
 		surfaces = GetComponents<SenkronVideoSurface> ();
 		senkronObjects = GetComponents<Senkron> ();
 
@@ -50,7 +53,7 @@ public class TouchableMultiVideoController : Touchable {
 
 	// Update is called once per frame
 	void Update () {
-		if (!boxCollider.enabled) {
+		if (!boxCollider.enabled || forcePause) {
 			Pause ();
 		}
 		else if (globalIndex != 0 && !isPlaying) {
@@ -61,7 +64,8 @@ public class TouchableMultiVideoController : Touchable {
 			surface.rawImage.enabled = boxCollider.enabled;
 		}
 
-		controller.enabled = boxCollider.enabled && !isPlaying;
+		playPause.enabled = boxCollider.enabled;
+		controller.enabled = boxCollider.enabled && firstPlay;
 		if (isPlaying) {
 			// Forces audio sync on first play (helpful for some devices)
 			if (audioAttached) {
@@ -91,18 +95,28 @@ public class TouchableMultiVideoController : Touchable {
 
 
 	public void Play(){
+		Color color = playPause.color;
+		playPause.texture = Resources.Load ("pauseBtn") as Texture;
+		color.a = 255;
+		playPause.color = color;
+
 		isPlaying = true;
 		controller.enabled = false;
+		forcePause = false;
 	}
 
 
 	public void Pause(){
+		playPause.texture = globalIndex != 0 ? Resources.Load ("playBtn") as Texture : null;
 		isPlaying = false;
-		controller.enabled = true;
+		//controller.enabled = true;
 		if(audioAttached)
 			audio.attachedAudioSource.Pause ();
 	}
 
+	public void ForcePause(){
+		forcePause = true;
+	}
 
 	public void Stop(){
 		globalIndex = 0;
@@ -116,7 +130,7 @@ public class TouchableMultiVideoController : Touchable {
 
 	override public void Touch(){
 		if (isPlaying) {
-			Pause ();
+			ForcePause ();
 		}
 		else{
 			Play ();

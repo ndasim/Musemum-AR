@@ -1,0 +1,162 @@
+fileFormatVersion: 2
+guid: 6a387a7fb5c34a14ca3318b65fec3e8d
+timeCreated: 1523354214
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: car_body
+    100002: car_grills
+    100004: car_parts
+    100006: //RootNode
+    100008: wheel_BL
+    100010: wheel_BR
+    100012: wheel_FL
+    100014: wheel_FR
+    400000: car_body
+    400002: car_grills
+    400004: car_parts
+    400006: //RootNode
+    400008: wheel_BL
+    400010: wheel_BR
+    400012: wheel_FL
+    400014: wheel_FR
+    2300000: car_body
+    2300002: car_grills
+    2300004: car_parts
+    2300006: wheel_BL
+    2300008: wheel_BR
+    2300010: wheel_FL
+    2300012: wheel_FR
+    3300000: car_body
+    3300002: car_grills
+    3300004: car_parts
+    3300006: wheel_BL
+    3300008: wheel_BR
+    3300010: wheel_FL
+    3300012: wheel_FR
+    4300000: car_body
+    4300002: car_grills
+    4300004: car_parts
+    4300006: wheel_FR
+    4300008: wheel_FL
+    4300010: wheel_BR
+    4300012: wheel_BL
+    7400000: car_body|car_body|Take 001|BaseLayer
+    7400002: car_body|car_grills|Take 001|BaseLayer
+    7400004: car_body|car_parts|Take 001|BaseLayer
+    7400006: car_body|wheel_BL|Take 001|BaseLayer
+    7400008: car_body|wheel_BR|Take 001|BaseLayer
+    7400010: car_body|wheel_FL|Take 001|BaseLayer
+    7400012: car_body|wheel_FR|Take 001|BaseLayer
+    7400014: car_grills|car_body|Take 001|BaseLayer
+    7400016: car_grills|car_grills|Take 001|BaseLayer
+    7400018: car_grills|car_parts|Take 001|BaseLayer
+    7400020: car_grills|wheel_BL|Take 001|BaseLayer
+    7400022: car_grills|wheel_BR|Take 001|BaseLayer
+    7400024: car_grills|wheel_FL|Take 001|BaseLayer
+    7400026: car_grills|wheel_FR|Take 001|BaseLayer
+    7400028: car_parts|car_body|Take 001|BaseLayer
+    7400030: car_parts|car_grills|Take 001|BaseLayer
+    7400032: car_parts|car_parts|Take 001|BaseLayer
+    7400034: car_parts|wheel_BL|Take 001|BaseLayer
+    7400036: car_parts|wheel_BR|Take 001|BaseLayer
+    7400038: car_parts|wheel_FL|Take 001|BaseLayer
+    7400040: car_parts|wheel_FR|Take 001|BaseLayer
+    7400042: wheel_FR|car_body|Take 001|BaseLayer
+    7400044: wheel_FR|car_grills|Take 001|BaseLayer
+    7400046: wheel_FR|car_parts|Take 001|BaseLayer
+    7400048: wheel_FR|wheel_BL|Take 001|BaseLayer
+    7400050: wheel_FR|wheel_BR|Take 001|BaseLayer
+    7400052: wheel_FR|wheel_FL|Take 001|BaseLayer
+    7400054: wheel_FR|wheel_FR|Take 001|BaseLayer
+    7400056: wheel_FL|car_body|Take 001|BaseLayer
+    7400058: wheel_FL|car_grills|Take 001|BaseLayer
+    7400060: wheel_FL|car_parts|Take 001|BaseLayer
+    7400062: wheel_FL|wheel_BL|Take 001|BaseLayer
+    7400064: wheel_FL|wheel_BR|Take 001|BaseLayer
+    7400066: wheel_FL|wheel_FL|Take 001|BaseLayer
+    7400068: wheel_FL|wheel_FR|Take 001|BaseLayer
+    7400070: wheel_BR|car_body|Take 001|BaseLayer
+    7400072: wheel_BR|car_grills|Take 001|BaseLayer
+    7400074: wheel_BR|car_parts|Take 001|BaseLayer
+    7400076: wheel_BR|wheel_BL|Take 001|BaseLayer
+    7400078: wheel_BR|wheel_BR|Take 001|BaseLayer
+    7400080: wheel_BR|wheel_FL|Take 001|BaseLayer
+    7400082: wheel_BR|wheel_FR|Take 001|BaseLayer
+    7400084: wheel_BL|car_body|Take 001|BaseLayer
+    7400086: wheel_BL|car_grills|Take 001|BaseLayer
+    7400088: wheel_BL|car_parts|Take 001|BaseLayer
+    7400090: wheel_BL|wheel_BL|Take 001|BaseLayer
+    7400092: wheel_BL|wheel_BR|Take 001|BaseLayer
+    7400094: wheel_BL|wheel_FL|Take 001|BaseLayer
+    7400096: wheel_BL|wheel_FR|Take 001|BaseLayer
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 77
+    normalImportMode: 1
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

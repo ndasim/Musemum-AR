@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="i-pace" size="1.000000 0.610000" />
     <ImageTarget name="NSU601" size="10.000000 6.754698" />
     <ImageTarget name="devrim" size="1.000000 0.655548" />
   </Tracking>
