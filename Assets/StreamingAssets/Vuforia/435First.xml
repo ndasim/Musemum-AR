@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="belAir" size="1.000000 0.689655" />
+    <ImageTarget name="1495807299899-craftsyclairedelunetabletopper_qp" size="1.000000 0.800000" />
+    <ImageTarget name="man_ground" size="1.000000 1.000000" />
     <ImageTarget name="i-pace" size="1.000000 0.610000" />
     <ImageTarget name="NSU601" size="10.000000 6.754698" />
     <ImageTarget name="devrim" size="1.000000 0.655548" />

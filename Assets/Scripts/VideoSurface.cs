@@ -21,17 +21,13 @@ public class VideoSurface : MonoBehaviour {
 	public enum digitsLocation {Prefix, Postfix};
 	public digitsLocation DigitsLocation = digitsLocation.Postfix;
 
-	public bool enableAudio = false;
-
-	public bool enableReplay = true;
-
-	public bool showInstructions = true;
-		
-	bool audioAttached = false;
-
-	bool firstPlay = true;
-
 	public bool playing = false;
+	public bool enableAudio = false;
+	public bool enableReplay = true;
+	public bool showInstructions = true;
+
+	bool audioAttached = false;
+	bool firstPlay = true;
 
 	string indexStr = "";
 
@@ -46,7 +42,6 @@ public class VideoSurface : MonoBehaviour {
 	AttachedAudio myAudio = new AttachedAudio(); // Creates an audio class for audio management 
 
 	public RawImage view;
-
 	public BoxCollider boxCollider;
 
 	void Awake(){
@@ -62,8 +57,7 @@ public class VideoSurface : MonoBehaviour {
 			myAudio.frameIndex = firstFrame;
 		}
 	}
-
-
+		
 	void Update() {
 		if (playing) {
 			// Forces audio sync on first play (helpful for some devices)

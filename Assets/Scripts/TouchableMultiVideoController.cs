@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class TouchableMultiVideoController : Touchable {
 
 	public SenkronVideoSurface[] surfaces;
@@ -11,6 +10,7 @@ public class TouchableMultiVideoController : Touchable {
 
 	public RawImage controller;
 	public RawImage playPause;
+	public RawImage restartIcon;
 	public BoxCollider boxCollider;
 	public Frame frameShow;
 
@@ -18,6 +18,8 @@ public class TouchableMultiVideoController : Touchable {
 
 	bool isPlaying;
 	bool forcePause;
+	bool audioAttached;
+	bool firstPlay = true;
 
 	float globalIndex;
 
@@ -25,17 +27,11 @@ public class TouchableMultiVideoController : Touchable {
 
 	AttachedAudio audio = new AttachedAudio();
 
-	bool audioAttached;
-
-	bool firstPlay = true;
-
 	void Awake(){
 		audioAttached = GetComponent("AudioSource");
 		audio.attachedAudioSource = GetComponent<AudioSource>();
 	}
-
-
-	// Use this for initialization
+		
 	void Start () {
 		playPause.texture = null;
 		surfaces = GetComponents<SenkronVideoSurface> ();
@@ -49,9 +45,7 @@ public class TouchableMultiVideoController : Touchable {
 			audio.attachedAudioSource.time = start / FPS;
 		}
 	}
-
-
-	// Update is called once per frame
+		
 	void Update () {
 		if (!boxCollider.enabled || forcePause) {
 			Pause ();
@@ -92,13 +86,13 @@ public class TouchableMultiVideoController : Touchable {
 			}
 		}
 	}
-
-
+		
 	public void Play(){
-		Color color = playPause.color;
 		playPause.texture = Resources.Load ("pauseBtn") as Texture;
-		color.a = 255;
-		playPause.color = color;
+		restartIcon.texture = Resources.Load ("restartBtn") as Texture;
+
+		playPause.color = new Color(255,255,255,255);
+		restartIcon.color = new Color(255,255,255,255);
 
 		isPlaying = true;
 		controller.enabled = false;
@@ -108,6 +102,8 @@ public class TouchableMultiVideoController : Touchable {
 
 	public void Pause(){
 		playPause.texture = globalIndex != 0 ? Resources.Load ("playBtn") as Texture : null;
+		restartIcon.texture = globalIndex != 0 ? Resources.Load ("restartBtn") as Texture : null;
+
 		isPlaying = false;
 		//controller.enabled = true;
 		if(audioAttached)
@@ -122,12 +118,25 @@ public class TouchableMultiVideoController : Touchable {
 		globalIndex = 0;
 		isPlaying = false;
 		firstPlay = true;
+
+		playPause.color = new Color (0, 0, 0, 0);
+		restartIcon.color = new Color (0, 0, 0, 0);
+
 		if(audioAttached)
 			audio.attachedAudioSource.Stop ();
+
+		// One more broadcast
+		frameShow.showframe (globalIndex);
+
+		foreach (SenkronVideoSurface surface in surfaces){
+			surface.Sync ((int)globalIndex);
+		}
+
+		foreach (Senkron animator in senkronObjects){
+			animator.Sync ((int)globalIndex);
+		}
 	}
-
-
-
+		
 	override public void Touch(){
 		if (isPlaying) {
 			ForcePause ();
