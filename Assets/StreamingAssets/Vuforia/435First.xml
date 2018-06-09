@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="anadol" size="10.000000 5.514754" />
+    <ImageTarget name="avant" size="1.000000 0.748333" />
+    <ImageTarget name="pontiac" size="1.000000 0.597500" />
+    <ImageTarget name="anadolbocek" size="1.000000 0.702479" />
+    <ImageTarget name="AnadolEcevit" size="1.000000 0.500000" />
     <ImageTarget name="belAir" size="1.000000 0.689655" />
     <ImageTarget name="1495807299899-craftsyclairedelunetabletopper_qp" size="1.000000 0.800000" />
     <ImageTarget name="man_ground" size="1.000000 1.000000" />
